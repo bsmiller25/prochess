@@ -15,7 +15,9 @@ class Team(models.Model):
 
 class Player(models.Model):
     name = models.CharField(max_length=200)
-    chessname = models.CharField(max_length=200)
+    team = models.ForeignKey(Team,
+                             on_delete=models.CASCADE)
+    chessname = models.CharField(max_length=200, null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
     perf = models.IntegerField(null=True, blank=True)
-   
+
