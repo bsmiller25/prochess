@@ -159,7 +159,7 @@ def matchup(request):
         # fight!
             for player in team1.players:
                 for opponent in team2.players:
-                    c_score, o_score = Game(player, opponent, 'rating')
+                    c_score, o_score = Game(player, opponent, 'split')
                     player.score += c_score
                     team1.score += c_score
                     opponent.score += o_score
