@@ -5,6 +5,12 @@ from django.db import models
 class Division(models.Model):
     name = models.CharField(max_length=200)
 
+    def __str__(self):
+        return(self.name)
+
+    class Meta:
+        ordering = ['name']
+
 class Team(models.Model):
     name = models.CharField(max_length=200)
     division = models.ForeignKey(Division,
@@ -13,6 +19,13 @@ class Team(models.Model):
     losses = models.FloatField(null=True, blank=True)
     game_points = models.FloatField(null=True, blank=True)
 
+    def __str__(self):
+        return(self.name)
+
+    class Meta:
+        ordering = ['name']
+
+
 class Player(models.Model):
     name = models.CharField(max_length=200)
     team = models.ForeignKey(Team,
@@ -20,4 +33,10 @@ class Player(models.Model):
     chessname = models.CharField(max_length=200, null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True)
     perf = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return(self.name)
+
+    class Meta:
+        ordering = ['name']
 
